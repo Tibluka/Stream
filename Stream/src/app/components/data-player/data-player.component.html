@@ -1,4 +1,37 @@
-<video width="350" controls class="player">
-    <source src="https://drive.google.com/uc?id=19g17StWso2natqirqy14Iy0Oyenm9lm4" type='video/mp4'>
-    Your browser does not support HTML video.
-</video>
+
+    <ng-container *ngIf="currentEp != 0; else preview">
+        <video width="100%" controls class="player">
+            <source src="https://drive.google.com/uc?id=19g17StWso2natqirqy14Iy0Oyenm9lm4" type='video/mp4'>
+            Your browser does not support HTML video.
+        </video>
+    </ng-container>
+    <ng-template #preview>
+        <div class="list mt-4" >
+            <div class="img" >
+                <img src="../../../assets/images/friends-palmas-gif-janela.gif" alt="">
+            </div>
+        </div>
+    </ng-template>
+
+
+<div class="filter mt-4">
+    <span class="season-title mr-2">Temporadas</span>
+    <select name="filter" (change)="changeSeason($event)" id="ep">
+        <option *ngFor="let s of data" value="{{s}}">Temporada {{s}}</option>
+    </select>
+</div>
+
+<div class="list mt-4 d-flex" *ngFor="let prev of data" (click)="loadEpisode(prev)">
+    <div class="img mr-4">
+        <img src="../../../assets/images/tileburnedin.jpeg" width="80" height="50" alt="">
+    </div>
+    <div class="title text-left">
+        <div class="season-title">
+            <h6>{{prev.title}}</h6>
+        </div>
+        <div class="desc">
+            <p class="ellipsis season-desc">{{prev.description}}</p>
+        </div>
+
+    </div>
+</div>

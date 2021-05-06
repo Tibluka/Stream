@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   public episodes: Array<number> = []
   public selectedEpisode = 1
   public closeResult = '';
-
+  public previewList = []
 
   constructor(private apiService: ApiService,
     private modalService: NgbModal) {
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
+
   fetch() {
     debugger
     this.apiService.getApi(`1IG1FzI4xZy3I7LbsEiIcMVHguYy5syJp`).subscribe(res => {
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
