@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Stream';
+
+  title = 'streaming';
+  position = window.scrollY
+
+  ngOnInit(): void {
+    window.onscroll = () => {
+      if (window.scrollY >= 0) {
+        this.position = window.scrollY
+      }
+    };
+  }
+
 }

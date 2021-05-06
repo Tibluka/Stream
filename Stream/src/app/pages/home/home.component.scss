@@ -1,0 +1,9 @@
+.player {
+    margin: 30px;
+}
+
+.grid-template-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
